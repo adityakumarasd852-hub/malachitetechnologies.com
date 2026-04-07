@@ -1856,6 +1856,54 @@ body {
   transform: rotate(15deg);
   box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
+
+@media (max-width: 768px) {
+  .community-panel {
+    flex-direction: column !important;
+    min-height: 0;
+  }
+
+  .community-content {
+    width: 100%;
+    padding: 22px 18px !important;
+  }
+
+  .community-media {
+    width: 100% !important;
+    height: 210px;
+    min-height: 210px;
+  }
+
+  .community-media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .community-media::before {
+    width: 100%;
+    background: linear-gradient(to top, rgba(233, 252, 239, 0.78), rgba(233, 252, 239, 0));
+  }
+}
+
+@media (max-width: 480px) {
+  .community-copy h3 {
+    font-size: clamp(19px, 5.5vw, 22px);
+  }
+
+  .community-copy p {
+    font-size: clamp(14px, 4vw, 16px);
+    line-height: 1.55;
+  }
+
+  .community-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+  }
+}
 /* =========================
    MODERN CONTACT SECTION
 ========================= */
