@@ -4,10 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Malachite Technologies | Community & Blog</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body class="page-blog">
@@ -33,7 +29,7 @@
     <header class="hero-header">
       <div class="container nav-wrap">
         <a href="index.html" class="logo">
-          <img src="asset/img/LOGOVB 1.png" alt="Malachite Technologies Logo" />
+          <img src="asset/img/LOGOVB 1.png" alt="Malachite Technologies Logo" width="262" height="76" loading="eager" fetchpriority="high" decoding="async" />
         </a>
 
         <nav class="desktop-nav" aria-label="Primary Navigation">
@@ -68,65 +64,52 @@
     </div>
   </section>
 
-<section class="community-section" id="blog">
-  <div class="container community-container">
+<section class="blog-section" id="blog">
+  <div class="container">
     <div class="community-header">
-      <h2>Our <span>Valuable</span> Community</h2>
+      <div class="services-tag">Insights Journal</div>
+      <h2>Ideas, frameworks, and execution guides for modern companies</h2>
       <p>
-        In the fiercely competitive digital realm, a strong online presence is essential for business
-        success. Malachite Technologies provides Best Digital Marketing Services, Marketing Outsourcing
-        & IT Outsourcing Services that leverage marketing, data, artificial intelligence, and
-        cutting-edge technologies to help you achieve your goals.
+        Browse strategic content designed for founders, growth teams, and enterprise leaders focused on sustainable digital performance.
       </p>
     </div>
 
-    <div class="community-tabs" id="communityTabs">
-      <button class="community-tab" data-tab="startup">For Startups</button>
-      <button class="community-tab active" data-tab="smb">For SMB and Enterprise</button>
-      <button class="community-tab" data-tab="agency">For Digital Marketing Agencies</button>
-    </div>
-
-    <div class="community-panel">
-      <div class="community-content">
-        <div class="community-copy active" data-content="startup">
-          <h3>A Catalyst for Sustainable Growth:</h3>
-          <p>
-            Whether building your brand from the ground up via websites, social media handles, and apps
-            or helping you run your operations smoothly, our digital marketing, design & development,
-            and IT outsourcing services have your back!
-          </p>
-          <a href="#" class="community-btn">Check Now</a>
+    <div class="blog-grid">
+      <article class="blog-card">
+        <div class="blog-thumb">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1100&q=65" alt="Digital growth strategy workshop" loading="lazy" decoding="async" />
         </div>
-
-        <div class="community-copy active" data-content="smb">
-          <h3>Empowering Collaborative Innovation:</h3>
-          <p>
-            We have the secret formula needed to boost you into the big leagues, including bringing in
-            more traffic, building better websites and apps, hiring remote contractual resources, and
-            more to increase your ROI while decreasing expenses!
-          </p>
-          <a href="#" class="community-btn">Check Now</a>
+        <div class="blog-card-body">
+          <p class="blog-meta">Strategy | 8 min read</p>
+          <h3>From traffic to revenue: designing a premium full-funnel growth engine</h3>
+          <p>Learn how top-performing brands connect SEO, paid campaigns, content systems, and CRO into one measurable framework.</p>
+          <a href="#" class="blog-link">Read More</a>
         </div>
+      </article>
 
-        <div class="community-copy" data-content="agency">
-          <h3>Expert Marketing Excellence: Transparent Reporting, Dedicated Management</h3>
-          <p>
-            Whether you wish to provide all-around digital marketing or include the latest tech and
-            trends, the pressure on your in-house resources can be unsurmountable and costly! Relax;
-            our white label offerings cater to all your needs at affordable pricing.
-          </p>
-          <a href="#" class="community-btn">Check Now</a>
+      <article class="blog-card">
+        <div class="blog-thumb">
+          <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1100&q=65" alt="Executive digital roadmap planning" loading="lazy" decoding="async" />
         </div>
-      </div>
+        <div class="blog-card-body">
+          <p class="blog-meta">Leadership | 5 min read</p>
+          <h3>Executive dashboards that align product, marketing, and sales</h3>
+          <p>Build a reporting architecture that turns fragmented data into clear decisions for weekly planning and long-term scaling.</p>
+          <a href="#" class="blog-link">Read More</a>
+        </div>
+      </article>
 
-      <div class="community-media">
-        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1400&q=80" alt="Community Team" loading="lazy" />
-        <div class="community-bubble">
-          <span></span>
-          <span></span>
-          <span></span>
+      <article class="blog-card">
+        <div class="blog-thumb">
+          <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1100&q=65" alt="Modern corporate website and brand positioning" loading="lazy" decoding="async" />
         </div>
-      </div>
+        <div class="blog-card-body">
+          <p class="blog-meta">Branding | 6 min read</p>
+          <h3>Website design standards that make technology brands look premium</h3>
+          <p>Discover the visual, performance, and UX principles behind modern high-end corporate sites that convert.</p>
+          <a href="#" class="blog-link">Read More</a>
+        </div>
+      </article>
     </div>
   </div>
 </section>
@@ -136,7 +119,7 @@
     <div class="footer-main footer-main-compact">
       <div class="footer-brand-block">
         <a href="index.html" class="footer-logo-image-link" aria-label="Malachite Technologies Home">
-          <img src="asset/img/mlckinew.png" alt="Malachite Technologies" class="footer-logo-image" loading="lazy" />
+          <img src="asset/img/mlckinew.png" alt="Malachite Technologies" class="footer-logo-image" loading="lazy" decoding="async" />
         </a>
 
         <p class="footer-brand-description">We bring over 5+ years of industry experience, delivering end-to-end IT solutions through a team of skilled professionals focused on quality, innovation, and results.</p>
@@ -210,9 +193,11 @@
   </div>
 </footer>
 
-<script src="main.js"></script>
+<script src="main.js" defer></script>
 </body>
 </html>
+
+
 
 
 

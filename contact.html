@@ -4,10 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Malachite Technologies | Contact</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body class="page-contact">
@@ -33,7 +29,7 @@
     <header class="hero-header">
       <div class="container nav-wrap">
         <a href="index.html" class="logo">
-          <img src="asset/img/LOGOVB 1.png" alt="Malachite Technologies Logo" />
+          <img src="asset/img/LOGOVB 1.png" alt="Malachite Technologies Logo" width="262" height="76" loading="eager" fetchpriority="high" decoding="async" />
         </a>
 
         <nav class="desktop-nav" aria-label="Primary Navigation">
@@ -72,33 +68,55 @@
   <div class="container">
 
     <div class="contact-header">
-      <h2>Reach Out To Us!</h2>
-      <p>Pick your preferred way to connect and let&#39;s move things forward.</p>
+      <div class="services-tag">Contact Us</div>
+      <h2>Speak with our strategy and delivery team</h2>
+      <p>We respond with a focused roadmap based on your goals, timeline, and growth priorities.</p>
     </div>
 
-    <div class="contact-grid">
+    <div class="contact-split">
+      <div class="contact-details">
+        <article class="contact-detail-card">
+          <span class="detail-icon">&#128205;</span>
+          <div>
+            <h3>Address</h3>
+            <p>C-629, 6th Floor, Gaur City Center, Sector 4, Noida Extension, Uttar Pradesh - 203207</p>
+          </div>
+        </article>
 
-      <!-- CARD 1 -->
-      <div class="contact-card">
-        <div class="icon pink">&#128172;</div>
-        <p>Have a question? Let&#39;s have a call in 30 minutes!</p>
-        <a href="#" class="btn">Talk to Us Now</a>
+        <article class="contact-detail-card">
+          <span class="detail-icon">&#9993;</span>
+          <div>
+            <h3>Email</h3>
+            <p><a href="mailto:support@malachitetechnologies.com">support@malachitetechnologies.com</a></p>
+          </div>
+        </article>
+
+        <article class="contact-detail-card">
+          <span class="detail-icon">&#9742;</span>
+          <div>
+            <h3>Phone</h3>
+            <p><a href="tel:+911204030919">+91 120 4030 919</a> | <a href="tel:+12129018616">+1 (212) 901 8616</a></p>
+          </div>
+        </article>
       </div>
 
-      <!-- CARD 2 -->
-      <div class="contact-card">
-        <div class="icon green">&#128202;</div>
-        <p>Can&#39;t you find what you are looking for? We have a Demo, just for you!</p>
-        <a href="#" class="btn">Book a Demo Now</a>
+      <div class="contact-form-shell">
+        <h3>Send us your requirements</h3>
+        <form class="contact-form">
+          <div class="contact-form-row">
+            <input type="text" placeholder="Full Name" />
+            <input type="email" placeholder="Work Email" />
+          </div>
+          <div class="contact-form-row">
+            <input type="text" placeholder="Company" />
+            <input type="tel" placeholder="Phone Number" />
+          </div>
+          <div class="contact-form-row full">
+            <textarea placeholder="Tell us about your project scope"></textarea>
+          </div>
+          <button type="submit" class="contact-submit">Submit Request</button>
+        </form>
       </div>
-
-      <!-- CARD 3 -->
-      <div class="contact-card">
-        <div class="icon blue">&#128100;</div>
-        <p>Wish to hire Marketing or IT experts in 2 days?</p>
-        <a href="#" class="btn">Hire an Expert Now</a>
-      </div>
-
     </div>
 
   </div>
@@ -109,7 +127,7 @@
     <div class="footer-main footer-main-compact">
       <div class="footer-brand-block">
         <a href="index.html" class="footer-logo-image-link" aria-label="Malachite Technologies Home">
-          <img src="asset/img/mlckinew.png" alt="Malachite Technologies" class="footer-logo-image" loading="lazy" />
+          <img src="asset/img/mlckinew.png" alt="Malachite Technologies" class="footer-logo-image" loading="lazy" decoding="async" />
         </a>
 
         <p class="footer-brand-description">We bring over 5+ years of industry experience, delivering end-to-end IT solutions through a team of skilled professionals focused on quality, innovation, and results.</p>
@@ -183,9 +201,11 @@
   </div>
 </footer>
 
-<script src="main.js"></script>
+<script src="main.js" defer></script>
 </body>
 </html>
+
+
 
 
 
