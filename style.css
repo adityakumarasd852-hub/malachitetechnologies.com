@@ -454,6 +454,31 @@ body {
   line-height: 1.6;
   margin-bottom: 22px;
 }
+
+/* Home hero typography override */
+.page-home .hero-title-white {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+}
+
+.page-home .hero-title-accent {
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+  color: #35D56E !important;
+}
+
+.page-home .hero-subtext {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+}
+
+.page-home .hero-buttons .btn {
+  color: #ffffff !important;
+}
+
+.page-home .hero-buttons .btn:hover {
+  color: #ffffff !important;
+}
 .hero-buttons {
   display: flex;
   justify-content: center;
@@ -1361,6 +1386,88 @@ body {
 
 .about-btn:hover {
   transform: translateY(-2px);
+}
+
+/* About section staged reveal animation */
+.about-section.about-anim-ready .about-image-card,
+.about-section.about-anim-ready .about-floating-card,
+.about-section.about-anim-ready .about-tag,
+.about-section.about-anim-ready .about-title,
+.about-section.about-anim-ready .about-text,
+.about-section.about-anim-ready .about-feature,
+.about-section.about-anim-ready .about-stat,
+.about-section.about-anim-ready .about-actions {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.62s ease, transform 0.62s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.about-section.about-anim-ready .about-image-card {
+  transform: translateY(24px) scale(0.98);
+}
+
+.about-section.about-anim-ready .about-floating-card {
+  transform: translateY(18px);
+}
+
+.about-section.about-animate-in .about-image-card,
+.about-section.about-animate-in .about-floating-card,
+.about-section.about-animate-in .about-tag,
+.about-section.about-animate-in .about-title,
+.about-section.about-animate-in .about-text,
+.about-section.about-animate-in .about-feature,
+.about-section.about-animate-in .about-stat,
+.about-section.about-animate-in .about-actions {
+  opacity: 1;
+  transform: none;
+}
+
+.about-section.about-anim-ready .about-image-card {
+  transition-delay: 0.05s;
+}
+
+.about-section.about-anim-ready .about-floating-card {
+  transition-delay: 0.16s;
+}
+
+.about-section.about-anim-ready .about-tag {
+  transition-delay: 0.1s;
+}
+
+.about-section.about-anim-ready .about-title {
+  transition-delay: 0.18s;
+}
+
+.about-section.about-anim-ready .about-text {
+  transition-delay: 0.26s;
+}
+
+.about-section.about-anim-ready .about-feature:nth-child(1) {
+  transition-delay: 0.34s;
+}
+
+.about-section.about-anim-ready .about-feature:nth-child(2) {
+  transition-delay: 0.44s;
+}
+
+.about-section.about-anim-ready .about-feature:nth-child(3) {
+  transition-delay: 0.54s;
+}
+
+.about-section.about-anim-ready .about-stat:nth-child(1) {
+  transition-delay: 0.46s;
+}
+
+.about-section.about-anim-ready .about-stat:nth-child(2) {
+  transition-delay: 0.56s;
+}
+
+.about-section.about-anim-ready .about-stat:nth-child(3) {
+  transition-delay: 0.66s;
+}
+
+.about-section.about-anim-ready .about-actions {
+  transition-delay: 0.74s;
 }
 
 @media (max-width: 1100px) {

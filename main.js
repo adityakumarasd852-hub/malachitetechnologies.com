@@ -159,6 +159,35 @@ if (revealTargets.length) {
   });
 }
 
+const aboutSections = document.querySelectorAll(".about-section");
+
+if (aboutSections.length) {
+  aboutSections.forEach((section) => {
+    section.classList.add("about-anim-ready");
+  });
+
+  const aboutObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          return;
+        }
+
+        entry.target.classList.add("about-animate-in");
+        observer.unobserve(entry.target);
+      });
+    },
+    {
+      threshold: 0.2,
+      rootMargin: "0px 0px -40px 0px",
+    }
+  );
+
+  aboutSections.forEach((section) => {
+    aboutObserver.observe(section);
+  });
+}
+
 const navLinks = document.querySelectorAll(".desktop-nav a, .mobile-menu a, .header-actions a[data-nav]");
 const currentFile = window.location.pathname.split("/").pop() || "index.html";
 const currentPageMap = {
