@@ -1,25 +1,6 @@
 "use strict";
 
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-const connection =
-  navigator.connection ||
-  navigator.mozConnection ||
-  navigator.webkitConnection ||
-  null;
-const prefersReducedData = Boolean(connection && connection.saveData);
-const hasSlowConnection = Boolean(
-  connection &&
-    typeof connection.effectiveType === "string" &&
-    connection.effectiveType.includes("2g")
-);
-const isLowPowerDevice = Boolean(
-  (typeof navigator.hardwareConcurrency === "number" && navigator.hardwareConcurrency <= 4) ||
-    (typeof navigator.deviceMemory === "number" && navigator.deviceMemory <= 4)
-);
-const performanceMode = prefersReducedMotion || prefersReducedData || hasSlowConnection || isLowPowerDevice;
-if (performanceMode) {
-  document.documentElement.classList.add("perf-lite");
-}
 
 const menuToggle = document.getElementById("menuToggle");
 const mobileMenu = document.getElementById("mobileMenu");
@@ -118,7 +99,7 @@ window.addEventListener("resize", updateScrollProgress);
 updateScrollProgress();
 updateHeaderState();
 
-if (!prefersReducedMotion && !performanceMode) {
+if (!prefersReducedMotion) {
   const floatingLayer = document.createElement("div");
   floatingLayer.className = "floating-elements";
 
@@ -147,11 +128,11 @@ if (!prefersReducedMotion && !performanceMode) {
 }
 
 const revealTargets = document.querySelectorAll(
-  "section, .top-contact-bar, .announcement-bar, .modern-footer, .service-card, .portfolio-card, .tech-card, .industry-item, .contact-card, .who-card, .testimonial-card, .faq-item, .project-contact-form-card, .project-contact-visual"
+  "section, .top-contact-bar, .announcement-bar, .modern-footer, .service-card, .portfolio-card, .tech-card, .industry-item, .contact-card, .who-card, .testimonial-card, .faq-item, .project-contact-form-card, .project-contact-visual, .studio-feature-card, .studio-service-card, .studio-showcase-card, .studio-process-step, .studio-tech-item, .builder-review-card"
 );
 
 if (revealTargets.length) {
-  if (prefersReducedMotion || performanceMode || !supportsObserver) {
+  if (prefersReducedMotion || !supportsObserver) {
     revealTargets.forEach((target) => {
       target.classList.add("reveal-item", "is-visible");
     });
@@ -174,7 +155,7 @@ if (revealTargets.length) {
 
     revealTargets.forEach((target, index) => {
       target.classList.add("reveal-item");
-      if (target.matches(".service-card, .portfolio-card, .testimonial-card, .who-card, .contact-card")) {
+      if (target.matches(".service-card, .portfolio-card, .testimonial-card, .who-card, .contact-card, .studio-feature-card, .studio-service-card, .studio-showcase-card, .studio-process-step, .studio-tech-item, .builder-review-card")) {
         target.style.transitionDelay = `${Math.min(220, (index % 6) * 45)}ms`;
       }
       observer.observe(target);
@@ -183,7 +164,7 @@ if (revealTargets.length) {
 }
 
 const sections = document.querySelectorAll("section");
-if (sections.length && !prefersReducedMotion && !performanceMode && supportsObserver) {
+if (sections.length && !prefersReducedMotion && supportsObserver) {
   const sectionObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -200,7 +181,7 @@ if (sections.length && !prefersReducedMotion && !performanceMode && supportsObse
 }
 
 const heroContent = document.querySelector(".hero-content");
-if (heroContent && !performanceMode) {
+if (heroContent) {
   requestAnimationFrame(() => heroContent.classList.add("animate-in"));
 }
 
@@ -238,7 +219,7 @@ if (heroSlides.length > 1) {
   ensureSlideBackground(heroSlides[activeIndex]);
   ensureSlideBackground(heroSlides[(activeIndex + 1) % heroSlides.length]);
 
-  if (!prefersReducedMotion && !performanceMode) {
+  if (!prefersReducedMotion) {
     window.setInterval(() => {
       const nextIndex = (activeIndex + 1) % heroSlides.length;
       showSlide(nextIndex);
@@ -353,4 +334,71 @@ if (counters.length && statsSection) {
     );
     counterObserver.observe(statsSection);
   }
+}
+
+const studioFilterTabs = Array.from(document.querySelectorAll(".studio-filter-tab"));
+const studioShowcaseCards = Array.from(document.querySelectorAll(".studio-showcase-card"));
+
+if (studioFilterTabs.length && studioShowcaseCards.length) {
+  const applyStudioFilter = (filterKey) => {
+    studioFilterTabs.forEach((tab) => {
+      const isActive = tab.getAttribute("data-filter") === filterKey;
+      tab.classList.toggle("active", isActive);
+      tab.setAttribute("aria-pressed", isActive ? "true" : "false");
+    });
+
+    studioShowcaseCards.forEach((card) => {
+      const types = (card.getAttribute("data-types") || "").split(/\s+/).filter(Boolean);
+      const visible = filterKey === "all" || types.includes(filterKey);
+      card.classList.toggle("is-hidden", !visible);
+    });
+  };
+
+  studioFilterTabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      applyStudioFilter(tab.getAttribute("data-filter") || "all");
+    });
+  });
+
+  const activeTab = studioFilterTabs.find((tab) => tab.classList.contains("active")) || studioFilterTabs[0];
+  applyStudioFilter(activeTab.getAttribute("data-filter") || "all");
+}
+
+const parallaxTargets = Array.from(document.querySelectorAll("[data-parallax]"));
+
+if (parallaxTargets.length && !prefersReducedMotion) {
+  let animationFrame = null;
+  let pointerX = 0;
+  let pointerY = 0;
+
+  const renderParallax = () => {
+    parallaxTargets.forEach((target) => {
+      const factor = Number(target.getAttribute("data-parallax")) || 0.012;
+      const moveX = pointerX * factor * 80;
+      const moveY = pointerY * factor * 80;
+      target.style.transform = `translate3d(${moveX.toFixed(2)}px, ${moveY.toFixed(2)}px, 0)`;
+    });
+    animationFrame = null;
+  };
+
+  const handlePointerMove = (event) => {
+    pointerX = event.clientX / window.innerWidth - 0.5;
+    pointerY = event.clientY / window.innerHeight - 0.5;
+
+    if (!animationFrame) {
+      animationFrame = requestAnimationFrame(renderParallax);
+    }
+  };
+
+  const resetParallax = () => {
+    pointerX = 0;
+    pointerY = 0;
+    if (!animationFrame) {
+      animationFrame = requestAnimationFrame(renderParallax);
+    }
+  };
+
+  window.addEventListener("pointermove", handlePointerMove, { passive: true });
+  window.addEventListener("blur", resetParallax);
+  document.addEventListener("pointerleave", resetParallax);
 }
